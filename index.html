@@ -1,38 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KashifSheikh.co.pk</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
       color: white;
       text-align: center;
     }
-    .loader {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: #000;
-      color: #00ffff;
-      font-size: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-    .hidden { display: none; }
-    h1.glow {
+    h1 {
       font-size: 2.5rem;
-      animation: colorChange 2s infinite;
+      color: #00ffff;
+      animation: glow 2s infinite alternate;
     }
-    @keyframes colorChange {
-      0% { color: #00ffff; }
-      50% { color: #ff00ff; }
-      100% { color: #00ffff; }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #00ffff; }
+      to { text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff; }
+    }
+    header {
+      padding: 2rem;
+    }
+    .tagline {
+      font-style: italic;
+      margin-top: -1rem;
     }
     .download-section {
       margin: 2rem auto;
@@ -44,91 +37,95 @@
     a.download-btn {
       display: inline-block;
       padding: 1rem 2rem;
-      margin: 0.5rem;
+      margin: 1rem;
       background-color: #00ffff;
       color: black;
       text-decoration: none;
       font-weight: bold;
       border-radius: 8px;
-      transition: 0.3s;
+      transition: background 0.3s ease;
     }
     a.download-btn:hover {
       background-color: #00c3c3;
     }
-    .contact p {
-      font-size: 1rem;
+    .contact {
+      margin-top: 3rem;
+      font-size: 1.1rem;
     }
-    .reviews-btn {
-      margin: 2rem;
-      padding: 0.7rem 1.5rem;
-      background-color: #ff0080;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    .search-bar {
-      margin: 1.5rem;
-    }
-    input[type="text"] {
-      padding: 0.5rem;
-      width: 60%;
-      border-radius: 6px;
-      border: none;
+    .contact strong {
+      display: block;
     }
     footer {
       margin-top: 3rem;
       padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
       font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.1);
+    }
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      color: black;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #00ffff;
+      z-index: 9999;
+      display: none;
+      animation: fadeIn 1s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .changing-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+      animation: colorchange 2s infinite;
+    }
+    @keyframes colorchange {
+      0% { color: #00ffff; }
+      50% { color: #ff00ff; }
+      100% { color: #00ffff; }
+    }
+    #chat-btn {
+      margin-top: 2rem;
+      padding: 10px 20px;
+      background: #00ffff;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
     }
   </style>
 </head>
-<body onload="initWebsite()">
-  <div class="loader" id="loader">Loading...</div>
-
-  <header>
-    <h1 class="glow">KashifSheikh.co.pk</h1>
+<body>
+  <div id="loader" style="position:fixed;top:0;left:0;right:0;bottom:0;background:#000;display:flex;align-items:center;justify-content:center;z-index:9999;">
+    <h1 class="changing-text">Loading...</h1>
+  </div>  <div class="popup" id="welcomePopup">
+    <p style="font-size: 1.5rem;">❤️ Welcome to <strong>KashifSheikh.co.pk</strong> ❤️</p>
+  </div>  <header>
+    <h1>KashifSheikh.co.pk</h1>
+    <p class="tagline">Your trusted place for downloads</p>
     <p><strong>Owned by Kashif & Shahzaib</strong></p>
-  </header>
-
-  <div class="search-bar">
-    <input type="text" placeholder="Search..." />
-  </div>
-
-  <section class="download-section">
+  </header>  <section class="download-section">
     <h2>📥 Download APKs</h2>
     <a href="https://www.mediafire.com/file/hqzjnsjshvaanas/capcut_14.5.0.apk/file" class="download-btn" target="_blank">Download CapCut Pro</a>
     <a href="https://www.mediafire.com/file/ffwjymui7djjmgq/Remini-MOD-APK-v3.8.4-reminiiapp.com.apk/file" class="download-btn" target="_blank">Download Remini MOD</a>
-    <p>If link doesn't work, contact us via WhatsApp below ⬇</p>
-  </section>
-
-  <div class="contact">
-    <p>📱 WhatsApp Support:</p>
-    <p><strong>Kashif:</strong> <a href="https://wa.me/923216707844" style="color:#00ffff;">0321 6707844</a></p>
-    <p><strong>Shahzaib:</strong> <a href="https://wa.me/923284751987" style="color:#00ffff;">0328 4751987</a></p>
-  </div>
-
-  <button class="reviews-btn" onclick="alert('⭐ 30+ user reviews coming soon!')">View Reviews</button>
-
-  <div>
-    <p>📌 We will add more apps in the future.</p>
-    <p>📱 TikTok: <a href="https://tiktok.com/@kashif.co.pk" style="color:#00ffff;">Kashif</a> | 
-       <a href="https://www.tiktok.com/@kashifandshahzaib?_t=ZS-8xthMTg7R7X&_r=1" style="color:#00ffff;">Shahzaib</a></p>
-  </div>
-
-  <footer>
+    <p>If any link doesn't work, contact us on WhatsApp.</p>
+  </section>  <div class="contact">
+    <p>📱 WhatsApp for Support:</p>
+    <p><strong>Kashif:</strong> <a href="https://wa.me/923216707844" target="_blank">0321 6707844</a></p>
+    <p><strong>Shahzaib:</strong> <a href="https://wa.me/923284751987" target="_blank">0328 4751987</a></p>
+  </div>  <div style="margin-top: 2rem;">
+    <p>📌 We may add more apps in future. You can comment on TikTok:</p>
+    <p><a href="https://www.tiktok.com/@kashif.co.pk" target="_blank">Kashif TikTok ID</a> | <a href="https://www.tiktok.com/@kashifandshahzaib?_t=ZS-8xthMTg7R7X&_r=1" target="_blank">Shahzaib TikTok ID</a></p>
+  </div>  <div>
+    <button id="chat-btn">💬 Chat Now</button>
+  </div>  <footer>
     &copy; 2025 KashifSheikh.co.pk — All rights reserved.
-  </footer>
-
-  <script>
-    function initWebsite() {
-      setTimeout(() => {
-        document.getElementById("loader").classList.add("hidden");
-        alert("❤️ Welcome to KashifSheikh.co.pk!");
-      }, 5000);
-    }
-  </script>
-</body>
-</html>
+  </footer>  <script>
+    // Loading screen with 5 sec delay
+    window.addEventListener('load', () => {
+      setTimeout
